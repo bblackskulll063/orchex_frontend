@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -20,7 +20,7 @@ function App() {
         <Sidebar />
       </aside>
       <div class="p-4 sm:ml-64 ">
-        <div class="p-4 border-2 rounded-lg dark:border-gray-700 mt-14">
+        <div class="p-4 mt-14">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/order" element={<Order />} />
