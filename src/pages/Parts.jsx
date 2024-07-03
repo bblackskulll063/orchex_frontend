@@ -75,7 +75,7 @@ const Parts = () => {
                   {index + 1}
                 </td>
                 <td class="px-6 py-4 text-center">{part.name}</td>
-                 <td class="px-6 py-4 text-center">image</td>
+                <td class="px-6 py-4 text-center">image</td>
                 <td class="px-6 py-4 text-center">{part.brand.name}</td>
                 <td class="px-6 py-4 text-center">{part.description}</td>
                 <td class="px-6 py-4 text-center">{part.price_single}</td>
