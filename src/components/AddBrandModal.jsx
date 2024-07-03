@@ -2,8 +2,8 @@ import React, { useState, useContext } from 'react';
 import BrandContext from '../context/brand/BrandContext';
 
 const AddBrandModal = ({ isOpen, onClose }) => {
-    const context = useContext(BrandContext);
-    const { createBrand } = context;
+  const context = useContext(BrandContext);
+  const { createBrand } = context;
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 

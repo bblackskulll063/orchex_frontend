@@ -1,11 +1,14 @@
 import React from "react";
 import BrandProvider from "./brand/brandState";
 import WarehouseProvider from "./warehouse/StateAPI";
+import PartProvider from "./parts/PartState";
 
 const AppProvider = ({ children }) => {
   return (
     <BrandProvider>
-      <WarehouseProvider>{children}</WarehouseProvider>
+      <WarehouseProvider>
+        <PartProvider>{children}</PartProvider>
+      </WarehouseProvider>
     </BrandProvider>
   );
 };

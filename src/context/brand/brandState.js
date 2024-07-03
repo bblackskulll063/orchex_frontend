@@ -46,9 +46,9 @@ const BrandState = ({ children }) => {
     try {
       await axios.delete(`${host}/brand/${id}`);
       setBrands(brands.filter((brand) => brand.id !== id));
+      fetchBrands();
     } catch (error) {
       setError(error);
-      fetchBrands();
     }
   };
 
