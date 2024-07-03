@@ -8,7 +8,7 @@ const BrandState = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-   // Fetch all brand
+  // Fetch all brand
   const fetchBrands = async () => {
     setLoading(true);
     try {
@@ -21,7 +21,7 @@ const BrandState = ({ children }) => {
     }
   };
 
-    // Create a new brand
+  // Create a new brand
   const createBrand = async (brand) => {
     try {
       const response = await axios.post(`${host}/brand`, brand);
@@ -34,8 +34,8 @@ const BrandState = ({ children }) => {
   const updateBrand = async (id, updatedBrand) => {
     try {
       const response = await axios.put(`${host}/brand/${id}`, updatedBrand);
-      setBrands(
-        brands.map((brand) => (brand.id === id ? response.data : brand))
+      setBrands((prev) =>
+        prev.map((el) => (el._id === id ? response.data : el))
       );
     } catch (error) {
       setError(error);
@@ -49,14 +49,12 @@ const BrandState = ({ children }) => {
     } catch (error) {
       setError(error);
       fetchBrands();
-
     }
   };
 
   useEffect(() => {
     fetchBrands();
   }, []);
-
 
   return (
     <BrandContext.Provider
@@ -66,6 +64,5 @@ const BrandState = ({ children }) => {
     </BrandContext.Provider>
   );
 };
-
 
 export default BrandState;

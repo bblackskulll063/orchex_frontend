@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
-import BrandContext from '../context/brand/BrandContext';
+import React, { useState, useEffect, useContext } from "react";
+import BrandContext from "../context/brand/BrandContext";
 
 const UpdateBrandModal = ({ isOpen, onClose, brandToEdit }) => {
   const context = useContext(BrandContext);
   const { updateBrand } = context;
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     if (brandToEdit) {
@@ -16,9 +16,9 @@ const UpdateBrandModal = ({ isOpen, onClose, brandToEdit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateBrand(brandToEdit.id, { name, description });
-    setName('');
-    setDescription('');
+    await updateBrand(brandToEdit._id, { name, description });
+    setName("");
+    setDescription("");
     onClose();
   };
 
@@ -30,7 +30,12 @@ const UpdateBrandModal = ({ isOpen, onClose, brandToEdit }) => {
         <h2 className="text-2xl font-bold mb-4">Update Brand</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name:</label>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name:
+            </label>
             <input
               type="text"
               id="name"
@@ -41,7 +46,12 @@ const UpdateBrandModal = ({ isOpen, onClose, brandToEdit }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description:</label>
+            <label
+              htmlFor="description"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Description:
+            </label>
             <textarea
               id="description"
               value={description}
@@ -50,8 +60,19 @@ const UpdateBrandModal = ({ isOpen, onClose, brandToEdit }) => {
             />
           </div>
           <div className="flex justify-end space-x-2">
-            <button type="button" onClick={onClose} className="bg-gray-300 text-gray-700 px-4 py-2 rounded">Cancel</button>
-            <button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded">Save</button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="bg-gray-300 text-gray-700 px-4 py-2 rounded"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="bg-indigo-600 text-white px-4 py-2 rounded"
+            >
+              Save
+            </button>
           </div>
         </form>
       </div>
