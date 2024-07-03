@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import WarehouseContext from "../context/warehouse/ContextAPI";
 import BrandContext from "../context/brand/BrandContext";
+import PartContext from "../context/parts/PartContext";
 import { AiOutlineApartment } from "react-icons/ai";
 import { MdWarehouse } from "react-icons/md";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
@@ -11,10 +12,12 @@ import axios from "axios";
 const Dashboard = () => {
   const warehouseContext = useContext(WarehouseContext);
   const brandContext = useContext(BrandContext);
+  const partContext = useContext(PartContext);
   const [salesAmt, setSalesAmt] = useState(0);
   const [purchasesAmt, setPurchasesAmt] = useState(0);
   const { warehouses } = warehouseContext;
   const { brands } = brandContext;
+  const { parts } = partContext;
   const [loading, setLoading] = useState(false);
   const host = "http://localhost:5000";
   const getTotalSales = async () => {
@@ -76,7 +79,7 @@ const Dashboard = () => {
           />
           <div className="w-full flex flex-col justify-center space-y-3">
             <h1 className="text-center text-xl font-bold">Parts</h1>
-            <h1 className="text-center text-lg font-semibold">300</h1>
+            <h1 className="text-center text-lg font-semibold">{parts.length}</h1>
           </div>
         </div>
         <div className="flex bg-white  rounded-lg ">
